@@ -5,8 +5,7 @@ public class DArray
 	private long[] theArray; // ref to array theArray
 	private int nElems; // number of data items
 
-	public DArray(int max) // constructor
-	{
+	public DArray(int max) // constructor {
 		theArray = new long[max]; // create array
 		nElems = 0;
 	}
@@ -20,7 +19,7 @@ public class DArray
 	public void display() // displays array contents
 	{
 		for(int j=0; j<nElems; j++) // for each element,
-		System.out.print(theArray[j] + “ “); // display it
+			System.out.print(theArray[j] + “ “); // display it
 		System.out.println(“”);
 	}
 
@@ -33,7 +32,7 @@ public class DArray
 	private void recMergeSort(long[] workSpace, int lowerBound, int upperBound)
 	{
 		if(lowerBound == upperBound) // if range is 1,
-		return; // no use sorting
+			return; // no use sorting
 		else
 		{ // find midpoint
 			int mid = (lowerBound+upperBound) / 2;

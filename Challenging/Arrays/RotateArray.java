@@ -14,15 +14,18 @@ public class RotateArray {
 	public static void rotateArray(int[] array, int num) {
 		if(num > array.length)
 			num = num%array.length;
+
 		int[] result = new int[array.length];
-		for(int i=0; i<num; i++)
+		for (int i=0; i<num; i++)
 			result[i] = array[array.length-num+i];
+		
 		int j=0;
-		for(int i=num; i<array.length; i++) {
+		for (int i=num; i<array.length; i++) {
 			result[i] = array[j];
 			j++;
 		}
-		for(int i=0; i<result.length; i++)
+		
+		for (int i=0; i<result.length; i++)
 			System.out.print(result[i] + "  ");
 	}
 

@@ -2,6 +2,7 @@ import java.io.*;
 import java.util.*;
 
 class DArray {
+
 	private long[] theArray;
 	private int nElems;
 
@@ -16,7 +17,7 @@ class DArray {
 	}
 
 	public void display() {
-		for(int j=0; j<nElems; j++)
+		for (int j=0; j<nElems; j++)
 			System.out.print(theArray[j] + " ");
 		System.out.println();
 	}
@@ -27,36 +28,39 @@ class DArray {
 	}
 
 	private void recursiceMergeSort(long[] workspace, int lowerBound, int upperBound) {
-		if(lowerBound == upperBound)
+		if (lowerBound == upperBound)
 			return;
 		else {
-			int mid = (lowerBound + upperBound)/2;
-			recursiceMergeSort(workspace, lowerBound, mid);
-			recursiceMergeSort(workspace, mid+1, upperBound);
-			merge(workspace, lowerBound, mid+1, upperBound);
+			int middle = (lowerBound + upperBound)/2;
+			// Sorting lower half
+			recursiceMergeSort(workspace, lowerBound, middle);
+			// Sorting higher half
+			recursiceMergeSort(workspace, middle+1, upperBound);
+			// Merging 2 halves
+			merge(workspace, lowerBound, middle+1, upperBound);
 		}
 	}
 
 	private void merge(long[] workspace, int lowPtr, int highPtr, int upperBound) {
 		int j=0;
 		int lowerBound = lowPtr;
-		int mid = highPtr -1;
+		int middle = highPtr -1;
 		int n = upperBound - lowerBound + 1;
 
-		while(lowPtr <= mid && highPtr <= upperBound) {
-			if(theArray[j] < theArray[lowPtr])
+		while (lowPtr <= middle && highPtr <= upperBound) {
+			if (theArray[j] < theArray[lowPtr])
 				workspace[j++] = theArray[lowPtr++];
 			else
 				workspace[j++] = theArray[highPtr++];
 		}
 
-		while(lowPtr <= mid)
+		while (lowPtr <= middle)
 			workspace[j++] = theArray[lowPtr++];
 
-		while(highPtr <= upperBound)
+		while (highPtr <= upperBound)
 			workspace[j++] = theArray[highPtr++];
 
-		for(j=0; j<n ; j++) {
+		for (j=0; j<n ; j++) {
 			theArray[lowerBound + j] = workspace[j];
 		}
 	}
@@ -64,6 +68,7 @@ class DArray {
 
 public class MergeSortRecursive {
 	public static void main(String args[]) {
+		
 		int maxSize = 100;
 		DArray dar = new DArray(maxSize);
 

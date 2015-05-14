@@ -1,0 +1,82 @@
+Question : Given a list of absolute file paths, implement a function to store all the 
+		   paths in a tree, and a function to retrieve all the paths.
+
+Question(Done) : Find the majority element of an array. 
+
+Question(Done) : given a array and a integer x. Find the biggest element in array which is less then x.
+
+Question : give an input stream like 1010x0x1, give all the result that transfer x into 0 or 1  
+
+Question : Find the kth in two sorted arrays.
+
+Question(Done) : Insert a node in to sorted circular linked list. 
+
+Question : Describe a time at your job when you debugged/tested something but couldn't find what was wrong.
+		   Describe a good test.
+
+Question(Done) : Recursive flood fill algorithm
+
+Question(Done - Partial) : Given a 2D rectangular matrix of boolean values, write a function which returns whether 
+		   or not the matrix is the same when rotated 180 degrees. Additionally verify that every 
+		   boolean true is accessible from every other boolean true if a traversal can be made to 
+		   an adjacent cell in the matrix, excluding diagonal cells. That is , (x , y ) can access the set 
+		   [ ( x + 1 , y ) , ( x - 1 , y ) , (x , y - 1 ) , (x , y + 1 ) ] For example, the matrix 
+		   { { true , false } , { false , true } } should not pass this test.
+Approach :  public static boolean isMatrixEqualToFlip(boolean[][] matrix) {
+		        if (matrix==null || matrix.length == 0 || matrix[0].length == 0) {
+		            return true;
+		        }
+		        int rowlen = matrix[0].length;
+		        int highInd = matrix.length/2;
+		        int lowInd = highInd - 1 + (matrix.length % 2);
+		        System.out.println("rowlen: " + rowlen + " high: "+ highInd + " low: " + lowInd);
+		        while (lowInd >= 0) {
+		            System.out.println("high: " + highInd + " lowInd: " + lowInd);
+		            for(int i=0; i < rowlen; i++) {
+		                System.out.println("Compare " + matrix[highInd][i] + " to " + matrix[lowInd][rowlen - 1 - i]);
+		                if (matrix[highInd][i] != matrix[lowInd][rowlen - 1-i]) {
+		                    return false;
+		                }
+		            }
+		            lowInd--;
+		            highInd++;
+		        }
+		        return true;
+		    }
+
+Question(Done) : Invert a Map -> e.g 1: {a,b} 2: {c,d} becomes a:1 b:1 c:2 d2  
+
+Question(Done) : Given a list of integer e.g. (1,2,4,5,6,7,8...) Find a pair with a given sum.  
+
+Question : What approach to test if google chrome actually works
+
+Question : Divide a string into the minimal set of palindromes that can form it. 
+
+Question : How would you engineer google search?  
+
+Question : Find all substrings of a palindrome string. 
+
+Question(Done) : How do you find the cube root of a number? 
+
+Question : How do you run a test of 1 million sample data?  
+
+Question : You are a parking lot attendant in a lot that has one open spot, and you want to move 
+		   the cars from their original positions into a new arrangement. Create a program that 
+		   will print out instructions on how to move the cars most efficiently. 
+
+Question(Done) : How would you determine if someone has won a game of tic-tac-toe on a board of any size? 
+
+Question : Design a function which returns the number of set bits in a given number, when expressed in binary
+
+Question : Implement a 'binary tree' and explain it's function?
+
+Question : Serialize a string over network 
+
+Question(Done) : Assume a matrix of integers they are sorted in boh row and column vice .. how do u find a 
+		   given number from the matrix in a optimal way? 
+Approach : Let the matrix is n*m matrix. Then O(n log m) solution is trivial (binary search in each row). There is a easy O(n+m)
+		   solution too. The idea is to start from upper right corner (mat[0][m-1]) and traverse toward lower left corner 
+		   (mat[n-1][0]). On the way check each entry and depending on whether larger go left or down. If there is a solution you will find it on the way. Or you will arrive to a point where you can no longer move without going out of the matrix. Either way you will check at most O(n+m) entries thus the solution in O(n+m).
+
+Question : You have a database with employees and their hierarquies. Construct an SQL statement to associate 
+		   each employee with their supervisor.

@@ -3,7 +3,10 @@ import java.util.*;
 
 // Dynamic Programming Solution
 
+// Also Check : http://www.journaldev.com/530/java-program-to-find-out-longest-palindrome-in-a-string
+
 public class LongestPalindromicSubstring {
+
 	public static void main(String args[]) {
 		String s = "dabcba";
 		String result = longestPalindromeSubstring(s);
